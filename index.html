@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#68151b">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; object-src 'none'; frame-src 'none'">
   <title>Sanat &amp; Ritika — Wedding Invitation</title>
@@ -10,6 +11,10 @@
   <style>
     /* Theme switch: classic-rajputana, mughal-emerald, neel-mahal, heritage-ivory, royal-rajwada, or editorial. */
     :root {
+      color-scheme: only light;
+      --font-display: "Palatino Linotype", "Book Antiqua", Georgia, "Nirmala UI", serif;
+      --font-body: "Segoe UI", Aptos, Arial, "Nirmala UI", sans-serif;
+      --font-ui: "Segoe UI", Aptos, Arial, sans-serif;
       --maroon: #4a0e17;
       --maroon-dark: #2d090f;
       --maroon-light: #7a2631;
@@ -205,17 +210,34 @@
 
     html {
       scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     body {
       margin: 0;
       background: var(--ivory);
       color: var(--ink);
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: var(--font-body);
+      overflow-x: hidden;
+    }
+
+    .cover h1,
+    .save-date-page h2,
+    .save-date-date,
+    .detail-head h2,
+    .section-title,
+    .event-name,
+    .venue-card h4,
+    .footer h3,
+    .couple-name,
+    .theme-menu-title {
+      font-family: var(--font-display);
     }
 
     a {
       color: inherit;
+      -webkit-tap-highlight-color: transparent;
     }
 
     /* ---------- Cover page ---------- */
@@ -251,28 +273,6 @@
       border: 1px solid rgba(240, 223, 181, 0.35);
     }
 
-    .arch {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: min(88vw, 590px);
-      height: min(86vh, 760px);
-      transform: translate(-50%, -50%);
-      border: 1px solid rgba(240, 223, 181, 0.5);
-      border-bottom: 0;
-      border-radius: 50% 50% 0 0 / 28% 28% 0 0;
-      pointer-events: none;
-    }
-
-    .arch::before {
-      content: "";
-      position: absolute;
-      inset: 13px 13px 0;
-      border: 1px dashed rgba(240, 223, 181, 0.38);
-      border-bottom: 0;
-      border-radius: 50% 50% 0 0 / 28% 28% 0 0;
-    }
-
     .cover-content {
       position: relative;
       z-index: 2;
@@ -294,12 +294,20 @@
       font-size: 34px;
     }
 
+    .monogram-logo {
+      display: block;
+      width: 118px;
+      height: auto;
+      max-width: 30vw;
+      margin: 7px auto 12px;
+    }
+
     .kicker,
     .cover-venue,
     .countdown-label,
     .scroll-hint,
     .open-button {
-      font-family: Arial, sans-serif;
+      font-family: var(--font-ui);
       text-transform: uppercase;
     }
 
@@ -310,19 +318,54 @@
     }
 
     h1 {
-      margin: 23px 0 15px;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: clamp(7px, 1.5vw, 14px);
+      margin: 9px 0 14px;
       color: #fff5df;
-      font-size: clamp(51px, 11vw, 88px);
+      font-size: clamp(34px, 9.7vw, 76px);
       font-weight: 400;
-      line-height: 0.98;
+      line-height: 1.12;
+      white-space: nowrap;
     }
 
     .ampersand {
-      display: block;
-      margin: 9px;
+      display: inline;
+      margin: 0;
       color: var(--gold);
-      font-size: 26px;
+      font-size: 0.29em;
       font-style: italic;
+      letter-spacing: 0.04em;
+    }
+
+    .cover-divider {
+      width: min(74vw, 300px);
+      margin: 4px auto 10px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--gold);
+    }
+
+    .cover-divider::before,
+    .cover-divider::after {
+      flex: 1;
+      border-top: 1px solid rgba(240, 223, 181, 0.7);
+      content: "";
+    }
+
+    .cover-divider span {
+      font-size: 13px;
+      line-height: 1;
+    }
+
+    .cover-motto {
+      color: var(--gold-light);
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
     .gold-rule {
@@ -383,7 +426,7 @@
       display: block;
       margin-top: 4px;
       color: #e8d09d;
-      font-family: Arial, sans-serif;
+      font-family: var(--font-ui);
       font-size: 8px;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -392,14 +435,14 @@
     .countdown-message {
       margin-top: 10px;
       color: var(--gold-light);
-      font-family: Arial, sans-serif;
+      font-family: var(--font-ui);
       font-size: 11px;
       letter-spacing: 0.08em;
     }
 
     .open-button {
       display: inline-block;
-      margin-top: 31px;
+      margin-top: 40px;
       padding: 14px 25px;
       border: 1px solid var(--gold);
       color: #fff2d5;
@@ -462,7 +505,7 @@
 
     .label {
       color: #92754d;
-      font-family: Arial, sans-serif;
+      font-family: var(--font-ui);
       font-size: 10px;
       letter-spacing: 0.23em;
       text-transform: uppercase;
@@ -482,6 +525,12 @@
       line-height: 1;
     }
 
+    .blessing-symbol::before {
+      content: "❧";
+      display: inline-block;
+      text-shadow: 0 5px 16px rgba(184, 145, 76, 0.16);
+    }
+
     .save-date-card {
       max-width: 640px;
       margin: 0 auto;
@@ -494,7 +543,7 @@
 
     .save-date-weekday {
       color: #92754d;
-      font-family: Arial, sans-serif;
+      font-family: var(--font-ui);
       font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -549,7 +598,7 @@
       border: 1px solid #b99553;
       background: var(--maroon);
       color: #fff4dc;
-      font-family: Arial, sans-serif;
+      font-family: var(--font-ui);
       font-size: 10px;
       letter-spacing: 0.14em;
       text-decoration: none;
@@ -570,16 +619,26 @@
       border-color: rgba(181, 138, 74, 0.58);
     }
 
-    body[data-theme="editorial"] .arch {
-      border-color: rgba(181, 138, 74, 0.38);
-    }
-
     body[data-theme="editorial"] .odia,
     body[data-theme="editorial"] .om-symbol,
     body[data-theme="editorial"] .kicker,
     body[data-theme="editorial"] .scroll-hint,
     body[data-theme="editorial"] .cover-venue {
       color: #8a6a45;
+    }
+
+    body[data-theme="editorial"] .monogram-logo {
+      filter: invert(1);
+    }
+
+    body[data-theme="editorial"] .cover-divider,
+    body[data-theme="editorial"] .cover-motto {
+      color: #8a6a45;
+    }
+
+    body[data-theme="editorial"] .cover-divider::before,
+    body[data-theme="editorial"] .cover-divider::after {
+      border-color: rgba(181, 138, 74, 0.65);
     }
 
     body[data-theme="editorial"] h1,
@@ -610,18 +669,69 @@
       text-align: center;
     }
 
+    .detail-mantra {
+      color: #f0dfb5;
+      font-size: clamp(13px, 2.4vw, 17px);
+      letter-spacing: 0.06em;
+      line-height: 1.7;
+    }
+
     .detail-head h2 {
-      margin: 13px 0;
+      margin: 10px 0 16px;
       color: #fff4df;
-      font-size: clamp(34px, 7vw, 50px);
+      font-size: clamp(34px, 6vw, 48px);
       font-weight: 400;
     }
 
-    .detail-head p {
-      max-width: 650px;
+    .detail-intro {
+      max-width: 700px;
       margin: 0 auto;
       font-size: 15px;
-      line-height: 1.85;
+      line-height: 1.8;
+    }
+
+    .couple-grid {
+      max-width: 900px;
+      margin: 28px auto 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: center;
+      gap: 20px;
+    }
+
+    .couple-person {
+      min-width: 0;
+      padding: 18px 20px;
+      border: 1px solid rgba(240, 223, 181, 0.48);
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .couple-name {
+      color: #fff4df;
+      font-size: clamp(23px, 3.2vw, 30px);
+      line-height: 1.3;
+    }
+
+    .couple-family {
+      margin: 8px 0 0;
+      color: #f0dfc2;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .couple-with {
+      color: var(--gold-light);
+      font-size: 17px;
+      font-style: italic;
+    }
+
+    .ceremony-date {
+      margin: 25px 0 0;
+      color: var(--gold-light);
+      font-family: var(--font-ui);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
     .info-section {
@@ -641,7 +751,21 @@
 
     body[data-theme="editorial"] .detail-head h2 {
       color: var(--theme-heading);
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: var(--font-display);
+    }
+
+    body[data-theme="editorial"] .detail-mantra,
+    body[data-theme="editorial"] .couple-name {
+      color: var(--theme-heading);
+    }
+
+    body[data-theme="editorial"] .couple-family {
+      color: var(--ink);
+    }
+
+    body[data-theme="editorial"] .couple-person {
+      border-color: rgba(181, 138, 74, 0.48);
+      background: rgba(255, 255, 255, 0.52);
     }
 
     body[data-theme="editorial"] .section-title,
@@ -731,7 +855,7 @@
       padding-right: 10px;
       border-right: 1px solid var(--gold);
       color: #85653d;
-      font-family: Arial, sans-serif;
+      font-family: var(--font-ui);
       font-size: 10px;
       line-height: 1.7;
       letter-spacing: 0.13em;
@@ -747,14 +871,14 @@
 
     .event-info {
       color: #654d3a;
-      font-family: Arial, sans-serif;
+      font-family: var(--font-ui);
       font-size: 12px;
       line-height: 1.75;
     }
 
     .event-info strong {
       color: var(--maroon);
-      font-family: Georgia, serif;
+      font-family: var(--font-display);
       font-size: 13px;
     }
 
@@ -773,7 +897,7 @@
     .address-link::after {
       content: " ↗";
       color: var(--gold);
-      font-family: Arial, sans-serif;
+      font-family: var(--font-ui);
       font-weight: 700;
     }
 
@@ -859,7 +983,7 @@
       display: block;
       margin-top: 10px;
       color: var(--maroon);
-      font-family: Arial, sans-serif;
+      font-family: var(--font-ui);
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.14em;
@@ -868,7 +992,7 @@
 
     .venue-card p {
       color: #654d3a;
-      font-family: Arial, sans-serif;
+      font-family: var(--font-ui);
       font-size: 12px;
       line-height: 1.7;
     }
@@ -905,7 +1029,7 @@
       border: 0;
       background: transparent;
       color: rgba(247, 237, 219, 0.16);
-      font-family: Arial, sans-serif;
+      font-family: var(--font-ui);
       font-size: 7px;
       font-weight: 700;
       letter-spacing: 0.12em;
@@ -952,7 +1076,7 @@
     .theme-menu-title {
       margin: 0 0 9px;
       color: var(--gold-light);
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: var(--font-display);
       font-size: 14px;
       font-weight: 400;
       letter-spacing: 0.08em;
@@ -965,7 +1089,7 @@
       border-radius: 5px;
       background: color-mix(in srgb, var(--ivory) 91%, transparent);
       color: var(--ink);
-      font-family: Arial, sans-serif;
+      font-family: var(--font-ui);
       font-size: 11px;
       text-align: center;
       text-align-last: center;
@@ -982,7 +1106,7 @@
       display: inline-block;
       margin-top: 12px;
       color: var(--gold-light);
-      font-family: Arial, sans-serif;
+      font-family: var(--font-ui);
       font-size: 10px;
       letter-spacing: 0.15em;
       text-decoration: none;
@@ -1006,7 +1130,7 @@
       z-index: 5;
       display: block;
       color: #e0b1a2;
-      font-family: Georgia, serif;
+      font-family: var(--font-display);
       font-size: 11px;
       line-height: 1;
       opacity: 0.42;
@@ -1047,31 +1171,206 @@
     }
 
     @media (max-width: 650px) {
-      .cover { padding: 30px 26px; }
+      .cover {
+        min-height: 100vh;
+        min-height: 100svh;
+        padding:
+          max(24px, env(safe-area-inset-top))
+          18px
+          max(24px, env(safe-area-inset-bottom));
+      }
       .cover::before { inset: 12px; }
       .cover::after { inset: 19px; }
-      .arch { height: 82vh; }
-      .corner { font-size: 19px; }
-      .corner-top-left { left: 24px; top: 27px; }
-      .corner-top-right { right: 24px; top: 27px; }
-      .corner-bottom-left { left: 24px; bottom: 27px; }
-      .corner-bottom-right { right: 24px; bottom: 27px; }
+      .cover-content {
+        width: min(100%, 430px);
+        padding: 10px 2px;
+      }
+      .odia { font-size: 11px; line-height: 1.7; }
+      .om-symbol { margin: 2px 0 5px; font-size: 28px; }
+      .gold-rule { width: 70px; margin: 17px auto; }
+      .monogram-logo { width: 100px; margin: 5px auto 8px; }
+      h1 {
+        gap: clamp(5px, 1.8vw, 9px);
+        margin: 6px 0 10px;
+        font-size: clamp(31px, 8.8vw, 48px);
+        line-height: 1.1;
+      }
+      .ampersand { margin: 0; font-size: 0.29em; }
+      .cover-divider { width: min(74vw, 250px); margin: 3px auto 8px; }
+      .cover-motto { font-size: 10px; letter-spacing: 0.1em; }
+      .open-button {
+        min-height: 44px;
+        margin-top: 30px;
+        padding: 15px 18px;
+      }
+      .scroll-hint { margin-top: 10px; font-size: 8px; letter-spacing: 0.12em; }
+      .corner { font-size: 17px; }
+      .corner-top-left { left: 22px; top: 24px; }
+      .corner-top-right { right: 22px; top: 24px; }
+      .corner-bottom-left { left: 22px; bottom: 24px; }
+      .corner-bottom-right { right: 22px; bottom: 24px; }
+
+      .save-date-page {
+        padding: 44px 12px 52px;
+        padding-left: max(12px, env(safe-area-inset-left));
+        padding-right: max(12px, env(safe-area-inset-right));
+      }
+      .save-date-page::before { inset: 8px; }
+      .save-date-inner { max-width: 520px; }
+      .blessing-symbol { margin-bottom: 12px; font-size: 48px; }
+      .save-date-card {
+        padding: 24px 10px 22px;
+        outline-offset: 4px;
+      }
+      .save-date-weekday { font-size: 9px; }
+      .save-date-date {
+        margin: 10px 0;
+        font-size: clamp(27px, 8.5vw, 38px);
+        line-height: 1.15;
+      }
+      .save-date-flower { margin: 10px; font-size: 20px; }
+      .save-date-blessing {
+        padding: 0 8px;
+        font-size: 13px;
+        line-height: 1.65;
+      }
+      .save-date-count {
+        margin-top: 20px;
+        gap: 5px;
+      }
+      .save-date-count .count-unit { padding: 12px 2px 10px; }
+      .save-date-count .count-unit strong {
+        font-size: clamp(19px, 7vw, 29px);
+      }
+      .save-date-count .count-unit span {
+        font-size: 7px;
+        letter-spacing: 0.08em;
+      }
+      .save-date-next {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 22px;
+        padding: 12px 18px;
+      }
+
+      .detail-head { padding: 42px 16px 36px; }
+      .detail-head h2 { font-size: clamp(32px, 10vw, 43px); }
+      .detail-intro { max-width: 430px; font-size: 14px; line-height: 1.75; }
+      .couple-grid {
+        max-width: 430px;
+        margin-top: 21px;
+        grid-template-columns: 1fr;
+        gap: 9px;
+      }
+      .couple-person { padding: 14px 12px; }
+      .couple-name { font-size: clamp(22px, 7vw, 28px); }
+      .couple-family { margin-top: 5px; font-size: 12px; }
+      .couple-with { font-size: 15px; }
+      .ceremony-date { margin-top: 20px; font-size: 10px; line-height: 1.6; }
+      .info-section {
+        padding: 42px 14px;
+        padding-left: max(14px, env(safe-area-inset-left));
+        padding-right: max(14px, env(safe-area-inset-right));
+      }
+      .section-title { margin: 9px 0 16px; font-size: clamp(27px, 9vw, 36px); }
+      .ornament { margin: 12px; font-size: 20px; }
+      .copy { font-size: 14px; line-height: 1.75; }
+      .family { font-size: 13px; }
 
       .event {
         grid-template-columns: 76px 1fr;
-        gap: 10px;
-        padding: 15px 12px;
+        gap: 8px 10px;
+        padding: 14px 10px;
       }
 
       .event-date {
         grid-row: span 2;
         font-size: 9px;
+        line-height: 1.65;
       }
 
       .event-info { grid-column: 2; }
       .event-name { font-size: 22px; }
-      .venue-grid { grid-template-columns: 1fr; }
-      .info-section { padding: 48px 16px; }
+      .event-info strong { font-size: 12px; }
+      .address-link {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        line-height: 1.55;
+      }
+      .address { margin: 4px 0 0; }
+      .venue-grid {
+        max-width: 520px;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .venue-card {
+        min-height: 112px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 18px 12px;
+      }
+      .venue-card h4 { font-size: 17px; }
+      .venue-card p { margin: 4px 0 0; font-size: 11px; }
+      .footer { padding: 38px 16px max(38px, env(safe-area-inset-bottom)); }
+      .footer h3 { font-size: 29px; }
+      .back-top {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 8px;
+      }
+      .theme-trigger {
+        right: max(6px, env(safe-area-inset-right));
+        bottom: max(6px, env(safe-area-inset-bottom));
+      }
+      .theme-menu {
+        right: max(12px, env(safe-area-inset-right));
+        bottom: max(68px, calc(env(safe-area-inset-bottom) + 62px));
+      }
+    }
+
+    @media (max-width: 380px) {
+      .cover { padding-inline: 14px; }
+      .cover::before { inset: 8px; }
+      .cover::after { inset: 14px; }
+      .odia { font-size: 9.5px; }
+      h1 { font-size: clamp(39px, 13vw, 48px); }
+      .save-date-page { padding-inline: 8px; }
+      .save-date-card { padding-inline: 7px; }
+      .save-date-date { font-size: 27px; }
+      .save-date-count { gap: 4px; }
+      .save-date-count .count-unit strong { font-size: 18px; }
+      .save-date-blessing { font-size: 12px; }
+      .event { grid-template-columns: 68px 1fr; }
+      .event-name { font-size: 20px; }
+      .corner-top-left { left: 18px; top: 20px; }
+      .corner-top-right { right: 18px; top: 20px; }
+      .corner-bottom-left { left: 18px; bottom: 20px; }
+      .corner-bottom-right { right: 18px; bottom: 20px; }
+    }
+
+    @media (max-height: 650px) and (orientation: landscape) {
+      .cover {
+        min-height: 100svh;
+        padding-block: 18px;
+      }
+      .cover-content { width: min(82vw, 520px); padding: 4px 0; }
+      .odia { font-size: 10px; line-height: 1.35; }
+      .om-symbol { margin: 0; font-size: 25px; }
+      .gold-rule { margin: 6px auto; }
+      .monogram-logo { width: 78px; margin: 2px auto 5px; }
+      h1 { margin: 4px 0 6px; font-size: clamp(34px, 7.5vw, 58px); }
+      .ampersand { margin: 0; font-size: 0.29em; }
+      .cover-divider { margin: 2px auto 6px; }
+      .cover-motto { font-size: 11px; }
+      .open-button { margin-top: 30px; padding-block: 11px; }
+      .scroll-hint { display: none; }
+      .corner { display: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1106,8 +1405,6 @@
   </div>
 
   <header class="cover" id="home">
-    <div class="arch" aria-hidden="true"></div>
-
     <span class="corner corner-top-left" aria-hidden="true">❧</span>
     <span class="corner corner-top-right" aria-hidden="true">❧</span>
     <span class="corner corner-bottom-left" aria-hidden="true">❧</span>
@@ -1119,15 +1416,16 @@
       <div class="odia">॥ Om Shree Shree Prajapataye Namah ॥</div>
 
       <div class="gold-rule"></div>
-      <div class="kicker">The day we've dreamed of is finally near</div>
+      <img class="monogram-logo" src="sanat-ritika-monogram-transparent.png" alt="Sanat and Ritika SR monogram">
 
       <h1>
         Sanat
-        <span class="ampersand">with</span>
+        <span class="ampersand">weds</span>
         Ritika
       </h1>
 
-      <div class="gold-rule"></div>
+      <div class="cover-divider" aria-hidden="true"><span>✦</span></div>
+      <div class="cover-motto">Celebrating Love &amp; Happiness</div>
 
       <a class="open-button" href="#save-date">Open wedding invitation&nbsp; ↓</a>
       <span class="scroll-hint">Save the Date &amp; wedding details below</span>
@@ -1165,12 +1463,23 @@
 
   <div id="details">
     <section class="detail-head reveal">
-      <div class="label" style="color: #f0dfb5;">Wedding Invitation</div>
-      <h2>Sanat &amp; Ritika</h2>
-      <p>
-        Together with their families, they request the honour of your presence
-        as they exchange vows and begin a new chapter.
+      <div class="detail-mantra">॥ Om Shree Shree Jagannathaye Namah ॥</div>
+      <h2>Wedding Celebrations</h2>
+      <p class="detail-intro">
+        With the blessings of our elders and the love of our families, we invite you to celebrate the wedding of
       </p>
+      <div class="couple-grid">
+        <div class="couple-person">
+          <div class="couple-name">Ayushman Sanat</div>
+          <p class="couple-family">Elder son of Mrs. Sandhyarani Acharya &amp; Mr. Lalit Narayana Dash</p>
+        </div>
+        <div class="couple-with">with</div>
+        <div class="couple-person">
+          <div class="couple-name">Ayushmati Ritika</div>
+          <p class="couple-family">Elder daughter of Mrs. Anita Mittal &amp; Dr. Anil Kumar Mittal of Agra, Uttar Pradesh</p>
+        </div>
+      </div>
+      <div class="ceremony-date">Sunday · 6 December 2026</div>
     </section>
 
     <section class="info-section reveal">
@@ -1323,11 +1632,32 @@
 
     const themeSelect = document.getElementById("theme-select");
     const savedTheme = localStorage.getItem("invitation-theme");
+    const themeChromeColors = {
+      classic: "#68151b",
+      "mughal-emerald": "#043927",
+      "neel-mahal": "#0b192c",
+      "heritage-ivory": "#8b0000",
+      "royal-rajwada": "#48266f",
+      "banarasi-silk": "#3b040e",
+      mayura: "#1f5a46",
+      "saffron-palace": "#351008",
+      "nizam-obsidian": "#090b0a",
+      "jodhpur-indigo": "#09091f",
+      editorial: "#4d3036"
+    };
+
+    function syncBrowserChrome(theme) {
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      if (themeColor) {
+        themeColor.setAttribute("content", themeChromeColors[theme] || themeChromeColors.classic);
+      }
+    }
 
     const defaultTheme = "banarasi-silk";
     const initialTheme = savedTheme || defaultTheme;
     document.body.dataset.theme = initialTheme;
     themeSelect.value = initialTheme;
+    syncBrowserChrome(initialTheme);
 
     const themeTrigger = document.getElementById("theme-trigger");
     const themeMenu = document.getElementById("theme-menu");
@@ -1361,6 +1691,7 @@
       const selectedTheme = themeSelect.value;
       document.body.dataset.theme = selectedTheme;
       localStorage.setItem("invitation-theme", selectedTheme);
+      syncBrowserChrome(selectedTheme);
       refreshThemeShower();
       closeThemeMenu();
     });
