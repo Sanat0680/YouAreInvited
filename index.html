@@ -208,6 +208,32 @@
       box-sizing: border-box;
     }
 
+    .velvet-background {
+      background-color: var(--maroon);
+      background-image:
+        radial-gradient(
+          ellipse at 20% 20%,
+          color-mix(in srgb, var(--maroon-light) 58%, transparent),
+          transparent 50%
+        ),
+        radial-gradient(
+          ellipse at 80% 65%,
+          color-mix(in srgb, var(--maroon-dark) 72%, transparent),
+          transparent 55%
+        ),
+        radial-gradient(
+          ellipse at 35% 85%,
+          color-mix(in srgb, var(--maroon-light) 38%, transparent),
+          transparent 45%
+        ),
+        linear-gradient(
+          135deg,
+          color-mix(in srgb, var(--maroon) 86%, white),
+          var(--maroon-dark) 60%,
+          var(--maroon-light)
+        );
+    }
+
     html {
       scroll-behavior: smooth;
       -webkit-text-size-adjust: 100%;
@@ -292,6 +318,15 @@
       margin: 5px 0 8px;
       color: var(--gold-light);
       font-size: 34px;
+    }
+
+    .ganesh-symbol {
+      display: block;
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 8px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 5px rgba(45, 9, 15, 0.75));
     }
 
     .monogram-logo {
@@ -488,6 +523,23 @@
       text-align: center;
     }
 
+    .ganesh-peek {
+      position: absolute;
+      z-index: 8;
+      pointer-events: none;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 12px rgba(45, 9, 15, 0.22));
+    }
+
+    .save-date-ganesh {
+      left: clamp(18px, 7vw, 105px);
+      top: -132px;
+      width: 150px;
+      height: 150px;
+      transform: rotate(-90deg);
+      transform-origin: bottom center;
+    }
+
     .save-date-page::before {
       content: "";
       position: absolute;
@@ -578,7 +630,12 @@
     .save-date-count .count-unit {
       padding: 16px 5px 13px;
       border: 1px solid #c4a15e;
-      background: var(--maroon);
+      background-color: var(--maroon);
+      background-image:
+        radial-gradient(ellipse at 20% 20%, color-mix(in srgb, var(--maroon-light) 58%, transparent), transparent 50%),
+        radial-gradient(ellipse at 80% 65%, color-mix(in srgb, var(--maroon-dark) 72%, transparent), transparent 55%),
+        radial-gradient(ellipse at 35% 85%, color-mix(in srgb, var(--maroon-light) 38%, transparent), transparent 45%),
+        linear-gradient(135deg, color-mix(in srgb, var(--maroon) 86%, white), var(--maroon-dark) 60%, var(--maroon-light));
     }
 
     .save-date-count .count-unit strong {
@@ -596,7 +653,12 @@
       margin-top: 28px;
       padding: 13px 22px;
       border: 1px solid #b99553;
-      background: var(--maroon);
+      background-color: var(--maroon);
+      background-image:
+        radial-gradient(ellipse at 20% 20%, color-mix(in srgb, var(--maroon-light) 58%, transparent), transparent 50%),
+        radial-gradient(ellipse at 80% 65%, color-mix(in srgb, var(--maroon-dark) 72%, transparent), transparent 55%),
+        radial-gradient(ellipse at 35% 85%, color-mix(in srgb, var(--maroon-light) 38%, transparent), transparent 45%),
+        linear-gradient(135deg, color-mix(in srgb, var(--maroon) 86%, white), var(--maroon-dark) 60%, var(--maroon-light));
       color: #fff4dc;
       font-family: var(--font-ui);
       font-size: 10px;
@@ -664,16 +726,34 @@
     .detail-head {
       padding: 52px 20px 44px;
       border-bottom: 4px double var(--gold);
-      background: var(--maroon);
+      background-color: var(--maroon);
+      background-image:
+        radial-gradient(ellipse at 20% 20%, color-mix(in srgb, var(--maroon-light) 58%, transparent), transparent 50%),
+        radial-gradient(ellipse at 80% 65%, color-mix(in srgb, var(--maroon-dark) 72%, transparent), transparent 55%),
+        radial-gradient(ellipse at 35% 85%, color-mix(in srgb, var(--maroon-light) 38%, transparent), transparent 45%),
+        linear-gradient(135deg, color-mix(in srgb, var(--maroon) 86%, white), var(--maroon-dark) 60%, var(--maroon-light));
       color: #fff0d2;
       text-align: center;
     }
 
     .detail-mantra {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       color: #f0dfb5;
       font-size: clamp(13px, 2.4vw, 17px);
       letter-spacing: 0.06em;
       line-height: 1.7;
+    }
+
+    .jagannath-symbol {
+      display: block;
+      width: 112px;
+      height: 112px;
+      margin: 0 auto -13px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(45, 9, 15, 0.55));
     }
 
     .detail-head h2 {
@@ -743,10 +823,39 @@
       background: var(--theme-soft);
     }
 
+
     body[data-theme="editorial"] .detail-head {
       background: #fffaf1;
       color: var(--ink);
       border-bottom: 1px solid rgba(181, 138, 74, 0.48);
+    }
+
+    body[data-theme="editorial"] .footer {
+      background: var(--maroon);
+      color: #fffaf1;
+    }
+
+    body[data-theme="editorial"] .footer h3 {
+      color: #fffaf1;
+    }
+
+    body[data-theme="editorial"] .footer .label {
+      color: var(--gold-light) !important;
+    }
+
+    body[data-theme="editorial"] .footer .ornament,
+    body[data-theme="editorial"] .footer .back-top {
+      color: #fffaf1;
+    }
+
+    body[data-theme="editorial"] .save-date-count .count-unit,
+    body[data-theme="editorial"] .save-date-next {
+      border-color: #b99553;
+      background: var(--maroon);
+    }
+
+    body[data-theme="editorial"] .save-date-next {
+      color: #fffaf1;
     }
 
     body[data-theme="editorial"] .detail-head h2 {
@@ -999,7 +1108,12 @@
 
     .footer {
       padding: 48px 20px;
-      background: var(--maroon-dark);
+      background-color: var(--maroon);
+      background-image:
+        radial-gradient(ellipse at 20% 20%, color-mix(in srgb, var(--maroon-light) 58%, transparent), transparent 50%),
+        radial-gradient(ellipse at 80% 65%, color-mix(in srgb, var(--maroon-dark) 72%, transparent), transparent 55%),
+        radial-gradient(ellipse at 35% 85%, color-mix(in srgb, var(--maroon-light) 38%, transparent), transparent 45%),
+        linear-gradient(135deg, color-mix(in srgb, var(--maroon) 86%, white), var(--maroon-dark) 60%, var(--maroon-light));
       color: #f7e8c9;
       text-align: center;
     }
@@ -1187,6 +1301,7 @@
       }
       .odia { font-size: 11px; line-height: 1.7; }
       .om-symbol { margin: 2px 0 5px; font-size: 28px; }
+      .ganesh-symbol { width: 88px; height: 88px; margin: 0 auto 6px; }
       .gold-rule { width: 70px; margin: 17px auto; }
       .monogram-logo { width: 100px; margin: 5px auto 8px; }
       h1 {
@@ -1217,6 +1332,12 @@
       }
       .save-date-page::before { inset: 8px; }
       .save-date-inner { max-width: 520px; }
+      .save-date-ganesh {
+        left: 32px;
+        top: -55px;
+        width: 96px;
+        height: 96px;
+      }
       .blessing-symbol { margin-bottom: 12px; font-size: 48px; }
       .save-date-card {
         padding: 24px 10px 22px;
@@ -1256,6 +1377,7 @@
       }
 
       .detail-head { padding: 42px 16px 36px; }
+      .jagannath-symbol { width: 100px; height: 100px; margin-bottom: -11px; }
       .detail-head h2 { font-size: clamp(32px, 10vw, 43px); }
       .detail-intro { max-width: 430px; font-size: 14px; line-height: 1.75; }
       .couple-grid {
@@ -1362,6 +1484,8 @@
       .cover-content { width: min(82vw, 520px); padding: 4px 0; }
       .odia { font-size: 10px; line-height: 1.35; }
       .om-symbol { margin: 0; font-size: 25px; }
+      .ganesh-symbol { width: 68px; height: 68px; margin: 0 auto 4px; }
+      .jagannath-symbol { width: 88px; height: 88px; }
       .gold-rule { margin: 6px auto; }
       .monogram-logo { width: 78px; margin: 2px auto 5px; }
       h1 { margin: 4px 0 6px; font-size: clamp(34px, 7.5vw, 58px); }
@@ -1412,7 +1536,7 @@
 
     <main class="cover-content">
       <div class="odia">॥ ଶୁଭ ବିବାହ ॥</div>
-      <div class="om-symbol" aria-label="Om">ॐ</div>
+      <img class="ganesh-symbol" src="Ganesh.png" alt="Lord Ganesha">
       <div class="odia">॥ Om Shree Shree Prajapataye Namah ॥</div>
 
       <div class="gold-rule"></div>
@@ -1433,13 +1557,16 @@
   </header>
 
   <section class="save-date-page" id="save-date">
-    <div class="save-date-inner">
+      <div class="save-date-inner">
       <!-- <div class="label">The celebration</div>
      <h2>Save the Date</h2>  -->
       <div class="kicker" style="color: #92754d;">Request the pleasure of your presence</div> 
-      <div class="blessing-symbol" aria-hidden="true"></div>
+     
+      <div class="om-symbol" aria-label="Om">ॐ</div>
 
       <div class="save-date-card">
+        <img class="ganesh-peek save-date-ganesh" src="Ganesh1.png" alt="" aria-hidden="true">
+ 
         <div class="save-date-weekday">Sunday</div>
         <div class="save-date-date">06 December 2026</div>
         <div class="save-date-flower">✦ ❀ ✦</div>
@@ -1463,7 +1590,10 @@
 
   <div id="details">
     <section class="detail-head reveal">
-      <div class="detail-mantra">॥ Om Shree Shree Jagannathaye Namah ॥</div>
+      <div class="detail-mantra">
+        <img class="jagannath-symbol" src="Jagganathji.png" alt="Lord Jagannath">
+        <span>॥ Om Shree Shree Jagannathaye Namah ॥</span>
+      </div>
       <h2>Wedding Celebrations</h2>
       <p class="detail-intro">
         With the blessings of our elders and the love of our families, we invite you to celebrate the wedding of
@@ -1490,11 +1620,11 @@
         A celebration of love, tradition and togetherness — surrounded by
         the people who mean the most to us.
       </p>
-      <p class="family"><strong>Sidhant &amp; Dash Family</strong></p>
+      <p class="family"><strong>Dash Family</strong></p>
     </section>
 
     <section class="info-section soft reveal">
-      <div class="label">Two days · Four wedding functions</div>
+        <!-- <div class="label">Three special days · Four wedding functions</div> -->
       <h3 class="section-title">Wedding Festivities</h3>
 
       <div class="events">
@@ -1558,7 +1688,7 @@
       <div class="ornament">✧ ❀ ✧</div>
       <div class="label" style="color: #e8d09d;">With best compliments from</div>
       <!-- <h3>Sanat &amp; Ritika</h3> -->
-      <h3>Dash Family</h3>
+      <h3>Dash Family &amp; Shaan</h3>
       
       <!-- <p><strong>Sidhant Dash &amp; Dash Family</strong></p> -->
       <div class="ornament">॥ ଶୁଭମସ୍ତୁ ॥</div>
